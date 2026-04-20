@@ -137,13 +137,17 @@
         input:checked + .slider { background: #ff00cc; box-shadow: 0 0 15px #ff00cc; }
         input:checked + .slider:before { transform: translateX(22px); }
 
+        /* THE CENTERED BUTTON STYLING */
         .done-btn {
             background: linear-gradient(90deg, #ff00cc, #6a00ff);
             color: white; border: none; padding: 15px 60px;
             border-radius: 50px; font-size: 1.2rem; font-weight: bold;
             cursor: pointer; 
-            margin: 30px auto; /* Centering the button */
-            display: block;    /* Required for auto margins to center */
+            
+            /* CRITICAL CENTERING LOGIC */
+            display: block; 
+            margin: 40px auto; 
+            
             transition: 0.3s;
             box-shadow: 0 0 20px rgba(255, 0, 200, 0.6);
         }
