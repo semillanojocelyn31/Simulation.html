@@ -141,7 +141,10 @@
             background: linear-gradient(90deg, #ff00cc, #6a00ff);
             color: white; border: none; padding: 15px 60px;
             border-radius: 50px; font-size: 1.2rem; font-weight: bold;
-            cursor: pointer; margin-top: 30px; transition: 0.3s;
+            cursor: pointer; 
+            margin: 30px auto; /* Centering with auto margins */
+            display: block;    /* Required for auto margins to work */
+            transition: 0.3s;
             box-shadow: 0 0 20px rgba(255, 0, 200, 0.6);
         }
 
