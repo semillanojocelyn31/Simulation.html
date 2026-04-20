@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -167,9 +166,7 @@
             background: #333; color: white; border: 1px solid #ff00cc;
             padding: 12px 15px; border-radius: 10px; cursor: pointer;
             font-size: 0.9rem; margin-top: 15px; width: 100%;
-            transition: 0.2s;
         }
-        .copy-btn:hover { background: #444; border-color: #ff66cc; }
     </style>
 </head>
 <body>
@@ -249,8 +246,6 @@
 
         document.getElementById('countPresent').innerText = present.length;
         document.getElementById('countAbsent').innerText = absent.length;
-        
-        // Use innerText to handle the formatting properly
         document.getElementById('listPresent').innerText = present.length > 0 ? present.map(n => "• " + n).join("\n") : "None";
         document.getElementById('listAbsent').innerText = absent.length > 0 ? absent.map(n => "• " + n).join("\n") : "None";
 
@@ -270,13 +265,10 @@
         const text = `BSIT-2B Attendance\nSubject: ${sub}\nDate: ${date}\n\nAbsent Students:\n${absentList}`;
         
         navigator.clipboard.writeText(text).then(() => {
-            alert("Attendance report copied to clipboard!");
-        }).catch(err => {
-            console.error('Failed to copy: ', err);
+            alert("Report copied to clipboard!");
         });
     }
 
-    // CREATE BACKGROUND SPARKLES
     for (let i = 0; i < 50; i++) {
         let star = document.createElement("div");
         star.className = "sparkle";
