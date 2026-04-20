@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -153,6 +154,7 @@
             border-radius: 20px; padding: 25px; display: none;
             border: 2px solid #ff00cc; margin-top: 30px;
             box-shadow: 0 0 40px rgba(255, 0, 204, 0.4);
+            margin-bottom: 50px;
         }
 
         .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
@@ -163,9 +165,11 @@
 
         .copy-btn {
             background: #333; color: white; border: 1px solid #ff00cc;
-            padding: 8px 15px; border-radius: 10px; cursor: pointer;
+            padding: 12px 15px; border-radius: 10px; cursor: pointer;
             font-size: 0.9rem; margin-top: 15px; width: 100%;
+            transition: 0.2s;
         }
+        .copy-btn:hover { background: #444; border-color: #ff66cc; }
     </style>
 </head>
 <body>
@@ -190,7 +194,7 @@
     </div>
 </div>
 
-<button class="done-btn" onclick="generateSummary()">GENERATE REPORT ✨</button>
+<button class="done-btn" onclick="generateSummary()">DONE ✨</button>
 
 <div id="summaryPanel">
     <h2 style="text-align:center; color:#ff7eb3; margin-bottom:5px;">Attendance Summary</h2>
@@ -245,6 +249,8 @@
 
         document.getElementById('countPresent').innerText = present.length;
         document.getElementById('countAbsent').innerText = absent.length;
+        
+        // Use innerText to handle the formatting properly
         document.getElementById('listPresent').innerText = present.length > 0 ? present.map(n => "• " + n).join("\n") : "None";
         document.getElementById('listAbsent').innerText = absent.length > 0 ? absent.map(n => "• " + n).join("\n") : "None";
 
@@ -264,7 +270,9 @@
         const text = `BSIT-2B Attendance\nSubject: ${sub}\nDate: ${date}\n\nAbsent Students:\n${absentList}`;
         
         navigator.clipboard.writeText(text).then(() => {
-            alert("Report copied to clipboard!");
+            alert("Attendance report copied to clipboard!");
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
         });
     }
 
